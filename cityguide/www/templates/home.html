@@ -1,0 +1,51 @@
+<ion-view view-title="CityGuide">
+  <ion-content>
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Stadt
+          </div>
+          <select>
+            <option selected>Bitte auswählen...</option>
+            <option>Amsterdam</option>
+            <option>Berlin</option>
+            <option>Karlsruhe</option>
+            <option>Stuttgart</option>
+          </select>
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Tageszeit
+          </div>
+          <select>
+            <option selected>Bitte auswählen...</option>
+            <option>Vormittag</option>
+            <option>Mittag</option>
+            <option>Abend</option>
+          </select>
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Kategorie
+          </div>
+          <select>
+            <option selected>Bitte auswählen</option>
+            <option>Essen und Trinken</option>
+            <option>Sehenswert</option>
+            <option>Shopping</option>
+            <option>Erholung</option>
+            <option>Übernachtung</option>
+            <option>Parken</option>
+          </select>
+        </label>
+
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Filtern</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

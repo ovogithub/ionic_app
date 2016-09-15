@@ -1,0 +1,9 @@
+<ion-view view-title="Merken">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="bookmark in bookmarks" href="#/app/bookmarks/{{bookmark.id}}">
+        {{bookmark.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
