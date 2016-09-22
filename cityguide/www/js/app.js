@@ -63,7 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             })
 
             .state('app.detail', {
-                url: '/detail',
+                url: '/detail/:poiItem',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/detail.html',

@@ -69,7 +69,13 @@ angular.module('starter.controllers', [])
     })
 
     .controller('DetailCtrl', function ($scope, $stateParams) {
+        var poiItem = $stateParams.poiItem;
 
+        var detail = [];
+        detail[1] = 'lorem1';
+        detail[2] = 'lorem2';
+
+        $scope.detail = detail[poiItem];
     })
 
     .controller('BookmarkCtrl', function ($scope, $stateParams) {
