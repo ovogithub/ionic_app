@@ -1,8 +1,10 @@
 <ion-view view-title="Ergebnis">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="result in results" href="#/app/results/{{result.id}}">
+      <ion-item ng-repeat="result in results" href="#/app/results/{{result.id}}" class="item-icon-right"
+              ui-sref="app.detail">
         {{result.title}}
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
   </ion-content>

@@ -56,6 +56,9 @@ angular.module('starter.controllers', [])
     })
 
     .controller('ResultFilterCtrl', function ($scope, $stateParams) {
+
+        console.dir($stateParams);
+
         $scope.results = [
             {title: 'Schloß', id: 1},
             {title: 'Königstraße', id: 2},
@@ -76,6 +79,8 @@ angular.module('starter.controllers', [])
         ];
     })
 
-    .controller('HomeCtrl', function ($scope, $stateParams) {
-
+    .controller('HomeCtrl', function ($scope, $stateParams, $state) {
+        $scope.doFilter = function () {
+            $state.go('app.result-filter');
+        };
     });
