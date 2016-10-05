@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [])
+angular.module('home', [])
 
-    .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('HomeCtrl', function ($scope, $ionicModal, $timeout) {
 
         // With the new view caching in Ionic, Controllers are only called
         // when they are recreated or on app start, instead of every page change.
@@ -55,18 +55,7 @@ angular.module('starter.controllers', [])
     .controller('PlaylistCtrl', function ($scope, $stateParams) {
     })
 
-    .controller('ResultFilterCtrl', function ($scope, $stateParams) {
 
-        console.dir($stateParams);
-
-        $scope.results = [
-            {title: 'Schloß', id: 1},
-            {title: 'Königstraße', id: 2},
-            {title: 'Fernsehturm', id: 3},
-            {title: 'Mercedes Benz Museum', id: 4},
-            {title: 'Staatsgalerie', id: 5}
-        ];
-    })
 
     .controller('DetailCtrl', function ($scope, $stateParams) {
         var poiItem = $stateParams.poiItem;
@@ -86,13 +75,18 @@ angular.module('starter.controllers', [])
     })
 
     .controller('HomeCtrl', function ($scope, $stateParams, $state) {
+
         $scope.citys = [
             {title: 'Bitte auswählen', id: 0},
-            {title: 'Amsterdam', id: 1},
+            {title: 'Amsterdam', id: '1'},
             {title: 'Berlin', id: 2},
             {title: 'Karlsruhe', id: 3},
             {title: 'Stuttgart', id: 4}
         ];
+
+        console.dir($scope);
+        $scope.result_filter;
+        //$scope.result_filter.city = $scope.citys[0].id;
 
         $scope.times = [
             {title: 'Bitte auswählen', id: 0},
@@ -111,7 +105,5 @@ angular.module('starter.controllers', [])
             {title: 'Parken', id: 3}
         ];
 
-        $scope.doFilter = function () {
-            $state.go('app.result-filter');
-        };
+
     });
