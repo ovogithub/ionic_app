@@ -86,6 +86,31 @@ angular.module('starter.controllers', [])
     })
 
     .controller('HomeCtrl', function ($scope, $stateParams, $state) {
+        $scope.citys = [
+            {title: 'Bitte auswählen', id: 0},
+            {title: 'Amsterdam', id: 1},
+            {title: 'Berlin', id: 2},
+            {title: 'Karlsruhe', id: 3},
+            {title: 'Stuttgart', id: 4}
+        ];
+
+        $scope.times = [
+            {title: 'Bitte auswählen', id: 0},
+            {title: 'Vormittag', id: 1},
+            {title: 'Mittag', id: 2},
+            {title: 'Abend', id: 3}
+        ];
+
+        $scope.categories = [
+            {title: 'Bitte auswählen', id: 0},
+            {title: 'Essen und Trinken', id: 1},
+            {title: 'Sehenswert', id: 2},
+            {title: 'Shopping', id: 3},
+            {title: 'Erholung', id: 3},
+            {title: 'Übernachten', id: 3},
+            {title: 'Parken', id: 3}
+        ];
+
         $scope.doFilter = function () {
             $state.go('app.result-filter');
         };
