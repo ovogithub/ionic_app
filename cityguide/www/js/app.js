@@ -49,6 +49,9 @@ angular.module('starter', ['ionic', 'home', 'result-filter'])
                         templateUrl: 'templates/result-filter.html',
                         controller: 'ResultFilterCtrl'
                     }
+                },
+                params: {
+                    data: [{filters: null}, {results: null}]
                 }
             })
 

@@ -1,13 +1,17 @@
 <ion-view view-title="Ergebnis">
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="result in results" class="item-icon-right"
-              ui-sref="app.detail({poiItem: result.id})">
-        {{result.id}}
-        {{result.title}}
-        {{city.id}}
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+        <div  class="padding item-icon-left">
+            <span><i class="ion-ios-pricetags-outline"></i> Filters: </span>
+            <span ng-repeat="filter in filters">{{ filter }} </span>
+        </div>
+
+        <ion-list>
+            <ion-item ng-repeat="result in results" class="item-icon-right"
+                      ui-sref="app.detail({poiItem: result.id})">
+                {{result.id}}
+                {{result.title}}
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

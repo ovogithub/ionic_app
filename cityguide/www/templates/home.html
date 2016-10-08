@@ -1,12 +1,12 @@
 <ion-view view-title="CityGuide">
   <ion-content>
-    <form>
+    <form name="resultFilters" ng-submit="processFilters(resultFilters)">
       <div class="list">
         <label class="item item-input item-select">
           <div class="input-label">
             Stadt
           </div>
-          <select ng-model="city.selectedOption"
+          <select name="city" ng-model="city.selectedOption"
                   ng-options="option.title for option in city.availableOptions track by option.id">
 
           </select>
@@ -16,7 +16,7 @@
           <div class="input-label">
             Tageszeit
           </div>
-            <select ng-model="daytime.selectedOption"
+            <select name="daytime" ng-model="daytime.selectedOption"
                     ng-options="option.title for option in daytime.availableOptions track by option.id">
 
             </select>
@@ -26,14 +26,14 @@
           <div class="input-label">
             Kategorie
           </div>
-            <select ng-model="category.selectedOption"
+            <select name="category" ng-model="category.selectedOption"
                     ng-options="option.title for option in category.availableOptions track by option.id">
 
             </select>
         </label>
 
         <label class="item">
-          <button class="button button-block button-positive" ng-click="processFilters()">Filtern</button>
+          <button class="button button-block button-positive" type="submit">Filtern</button>
         </label>
       </div>
     </form>

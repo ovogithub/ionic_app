@@ -17,10 +17,10 @@ angular.module('home', [])
         ];
     })
 
-    .controller('HomeCtrl', function ($scope, $stateParams, $state) {
+    .controller('HomeCtrl', function ($scope, $state) {
 
-        $scope.processFilters = function () {
-            processFilters();
+        $scope.processFilters = function (form) {
+            processFilters(form);
         };
 
         $scope.city = {
@@ -58,11 +58,46 @@ angular.module('home', [])
             ], selectedOption: {id: 0, title: 'Bitte auswählen'}
         };
 
-        function processFilters(){
+        function processFilters(form) {
             console.log('HomeCtrl::processFilters');
+            console.log('sending request to backend ....');
+            console.log('there are two possible ways to retrieve data');
+            console.log('city = ' + $scope.city.selectedOption.title);
+            console.log('city = ' + form.city.$modelValue.title);
+            console.log('daytime = ' + $scope.daytime.selectedOption.title);
+            console.log('daytime = ' + form.daytime.$modelValue.title);
+            console.log('category = ' + $scope.category.selectedOption.title);
+            console.log('category = ' + form.category.$modelValue.title);
+
+            var values = [];
+             if(0!== $scope.city.selectedOption.id){
+                 values.push($scope.city.selectedOption.title);
+             }
+             if(0!== $scope.daytime.selectedOption.id){
+                 values.push($scope.daytime.selectedOption.title);
+             }
+             if(0!== $scope.category.selectedOption.id){
+                 values.push($scope.category.selectedOption.title);
+             }
+
+
+
+            // use a rest service here to get data from backend ...
+            // but for now we fake it ...
+            var data = {
+                results: [
+                    {title: 'Schloß', id: 1},
+                    {title: 'Königstraße', id: 2},
+                    {title: 'Fernsehturm', id: 3},
+                    {title: 'Mercedes Benz Museum', id: 4},
+                    {title: 'Staatsgalerie', id: 5}
+                ],
+                filters: values
+            };
+
+            $state.go('app.result-filter', {data: data});
+
         }
-
-
 
 
     });
