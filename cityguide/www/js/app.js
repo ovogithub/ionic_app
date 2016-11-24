@@ -4,7 +4,24 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'home', 'result-filter'])
+angular.module('starter', [
+
+    /* ionic-Modul */
+    'ionic',
+
+    /* app-controler-Module */
+    'home',
+    'result-filter',
+
+    /* service-Modul */
+    'rest'
+
+    ])
+
+    .constant('API_ENDPOINT', {
+        url: 'http://www.stadtbegehung.de/wp-json/wp/v2'
+        //  For a simulator use: url: 'http://127.0.0.1:8080/api'
+    })
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {

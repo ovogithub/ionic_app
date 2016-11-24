@@ -17,7 +17,17 @@ angular.module('home', [])
         ];
     })
 
-    .controller('HomeCtrl', function ($scope, $state) {
+    .controller('HomeCtrl', ['$scope', '$state', 'rest', function ($scope, $state, rest) {
+
+        rest.getPages()
+            .success(function (data) {
+                console.dir(data);
+                $scope.pages = data;
+            })
+            .error(function (error) {
+                console.dir(data);
+                $scope.error = 'Unable to get pages ' + error.message;
+            });
 
         $scope.processFilters = function (form) {
             processFilters(form);
@@ -70,16 +80,15 @@ angular.module('home', [])
             console.log('category = ' + form.category.$modelValue.title);
 
             var values = [];
-             if(0!== $scope.city.selectedOption.id){
-                 values.push($scope.city.selectedOption.title);
-             }
-             if(0!== $scope.daytime.selectedOption.id){
-                 values.push($scope.daytime.selectedOption.title);
-             }
-             if(0!== $scope.category.selectedOption.id){
-                 values.push($scope.category.selectedOption.title);
-             }
-
+            if (0 !== $scope.city.selectedOption.id) {
+                values.push($scope.city.selectedOption.title);
+            }
+            if (0 !== $scope.daytime.selectedOption.id) {
+                values.push($scope.daytime.selectedOption.title);
+            }
+            if (0 !== $scope.category.selectedOption.id) {
+                values.push($scope.category.selectedOption.title);
+            }
 
 
             // use a rest service here to get data from backend ...
@@ -100,4 +109,4 @@ angular.module('home', [])
         }
 
 
-    });
+    }]);
