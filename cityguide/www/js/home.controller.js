@@ -17,15 +17,16 @@ angular.module('home', [])
         ];
     })
 
-    .controller('HomeCtrl', ['$scope', '$state', 'rest', function ($scope, $state, rest) {
+    .controller('HomeCtrl', ['$scope', '$state', 'rest', 'wp', function ($scope, $state, rest, wp) {
 
-        rest.getPages()
+        rest.getCategories()
             .success(function (data) {
-                console.dir(data);
-                $scope.pages = data;
+                categories = wp.getCategories(data);
+
+                // TODO: categories lässt sich nicht in scope packen
             })
             .error(function (error) {
-                console.dir(data);
+                //console.dir(data);
                 $scope.error = 'Unable to get pages ' + error.message;
             });
 
@@ -42,8 +43,7 @@ angular.module('home', [])
                 {id: 4, title: 'Stuttgart'}
             ],
             selectedOption: {id: 0, title: 'Bitte auswählen'}
-        }
-        ;
+        };
 
         $scope.daytime = {
             availableOptions: [

@@ -14,7 +14,8 @@ angular.module('starter', [
     'result-filter',
 
     /* service-Modul */
-    'rest'
+    'rest',
+    'wp'
 
     ])
 
@@ -45,8 +46,7 @@ angular.module('starter', [
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: 'templates/menu.html',
-                controller: 'HomeCtrl'
+                templateUrl: 'templates/menu.html'
             })
 
             .state('app.home', {

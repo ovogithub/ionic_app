@@ -8,5 +8,10 @@ angular
              return $http.get(API_ENDPOINT.url + '/pages');
         };
 
+        rest.getCategories = function () {
+            return $http.get(API_ENDPOINT.url + '/categories');
+
+        };
+
         return rest;
     }]);
