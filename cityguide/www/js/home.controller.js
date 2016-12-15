@@ -21,9 +21,17 @@ angular.module('home', [])
 
         rest.getCategories()
             .success(function (data) {
-                categories = wp.getCategories(data);
+                wp.getCategories(data).then(
+                    function (resolve) {
+                        var categories;
+                        categories = resolve;
+                        setScope(categories);
 
-                // TODO: categories lässt sich nicht in scope packen
+                    }, function (reject) {
+                        console.dir(reject);
+                    }
+                );
+                //console.dir(categories);
             })
             .error(function (error) {
                 //console.dir(data);
@@ -34,16 +42,17 @@ angular.module('home', [])
             processFilters(form);
         };
 
-        $scope.city = {
-            availableOptions: [
-                {id: 0, title: 'Bitte auswählen'},
-                {id: 1, title: 'Amsterdam'},
-                {id: 2, title: 'Berlin'},
-                {id: 3, title: 'Karlsruhe'},
-                {id: 4, title: 'Stuttgart'}
-            ],
-            selectedOption: {id: 0, title: 'Bitte auswählen'}
-        };
+        function setScope(categories) {
+            console.log('set scope with ... ');
+            console.dir(categories);
+            $scope.city = {
+                availableOptions: categories
+                ,
+                selectedOption: {id: 0, title: 'Bitte auswählen'}
+            };
+        }
+
+
 
         $scope.daytime = {
             availableOptions: [
