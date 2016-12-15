@@ -5,7 +5,7 @@ angular
         var wp = {};
 
 
-
+        // $q liefert einen Promisse in Form des resolve oder reject
         wp.getCategories = function (data) {
             return $q(function (resolve, reject) {
                 var categories = [];

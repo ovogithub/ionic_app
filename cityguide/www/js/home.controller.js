@@ -19,12 +19,20 @@ angular.module('home', [])
 
     .controller('HomeCtrl', ['$scope', '$state', 'rest', 'wp', function ($scope, $state, rest, wp) {
 
+        // JSON request per AJAX
         rest.getCategories()
             .success(function (data) {
+
+                // Then wird ausgeführt, sobald der Promisse resolve oder reject zurückgibt
+                // Dadurch wird die setScope erst gerufen, wenn die Werte da sind.
+                // https://docs.angularjs.org/api/ng/service/$q
                 wp.getCategories(data).then(
                     function (resolve) {
                         var categories;
+                        
                         categories = resolve;
+                        categories.unshift({id: 0, title: 'Bitte auswählen'});
+
                         setScope(categories);
 
                     }, function (reject) {
@@ -52,6 +60,12 @@ angular.module('home', [])
             };
         }
 
+        $scope.city = {
+            availableOptions: [
+                {id: 0, title: 'Bitte auswählen'}
+            ],
+            selectedOption: {id: 0, title: 'Bitte auswählen'}
+        };
 
 
         $scope.daytime = {
